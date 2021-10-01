@@ -16,7 +16,7 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
+    name: 'Discípulos',
     ruta: '',
     children: [
       {name: 'Apple', ruta: 'helloworld'},
@@ -24,7 +24,7 @@ const TREE_DATA: FoodNode[] = [
       {name: 'Fruit loops', ruta: 'example2'},
     ]
   }, {
-    name: 'Vegetables',
+    name: 'Asignación de líderes',
     ruta: '',
     children: [
       {
@@ -58,6 +58,8 @@ interface ExampleFlatNode {
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent implements OnInit {
+
+  showFiller = false;
 
   ngOnInit(): void {
   }
