@@ -17,7 +17,7 @@
       <!-- This is the tree node template for leaf nodes -->
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
         <!-- use a disabled button to provide padding for tree leaf -->
-        <a mat-button routerLink="/mci/list-persons">{{node.name}}</a>
+        <a mat-button routerLink="{{node.ruta}}">{{node.name}}</a>
 
       </mat-tree-node>
       <!-- This is the tree node template for expandable nodes -->
