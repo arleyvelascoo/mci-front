@@ -1,4 +1,367 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-row.highlight {
+  background-color: lightgray !important;
+}
+
+.highlight {
+  background-color: lightgray !important;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px 20px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    .container {
+      max-width: 1110px;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f5ecce;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//Estilos modificados de material
+$text-main-color: #000;
+$main-color: #000000;
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: $main-color;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent
+.mat-radio-ripple
+.mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: $main-color;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $main-color;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $main-color;
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 20px;
+  color: $text-main-color;
+}
+
+.mat-toolbar.mat-primary {
+  background: $main-color;
+  color: #fff;
+}
+
+.mat-badge-content {
+  color: #fff;
+  background: $main-color;
+}
+
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: $main-color;
+}
+
+.mat-badge-content {
+  color: #fff;
+  background: $main-color;
+}
+
+.mat-stroked-button.mat-primary {
+  color: $main-color;
+}
+
+.mat-mini-fab.mat-primary {
+  background-color: $main-color;
+}
+
+.mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+.mat-checkbox-checked.mat-primary .mat-checkbox-background {
+  background-color: $main-color;
+}
+
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary
+.mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary
+.mat-ripple-element {
+  background: $main-color;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+  background-color: $main-color;
+  color: #fff;
+}
+
+.mat-calendar-body-selected {
+  background-color: $main-color;
+  color: #fff;
+}
+
+.mat-datepicker-toggle-active {
+  color: $main-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $main-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $main-color;
+}
+
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid)
+.mat-form-field-infix::after {
+  color: $main-color;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: $main-color;
+}
+
+.mat-icon.mat-primary {
+  color: $main-color;
+}
+
+.mat-input-element {
+  caret-color: $main-color;
+}
+
+.mat-progress-bar-fill::after {
+  background-color: $main-color;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $main-color;
+}
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $main-color;
+}
+
+.mat-radio-button.mat-primary .mat-radio-inner-circle,
+.mat-radio-button.mat-primary
+.mat-radio-ripple
+.mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+  background-color: $main-color;
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $main-color;
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+  background-color: $main-color;
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-ripple-element {
+  background-color: $main-color;
+}
+
+.mat-primary .mat-slider-track-fill,
+.mat-primary .mat-slider-thumb,
+.mat-primary .mat-slider-thumb-label {
+  background-color: $main-color;
+}
+
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: $main-color;
+  color: #fff;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: $main-color;
+}
+
+.mat-tab-group.mat-background-primary > .mat-tab-header,
+.mat-tab-group.mat-background-primary > .mat-tab-link-container,
+.mat-tab-group.mat-background-primary > .mat-tab-header-pagination,
+.mat-tab-nav-bar.mat-background-primary > .mat-tab-header,
+.mat-tab-nav-bar.mat-background-primary > .mat-tab-link-container,
+.mat-tab-nav-bar.mat-background-primary > .mat-tab-header-pagination {
+  background-color: $main-color;
+}
+
+.mat-toolbar.mat-primary {
+  background: $main-color;
+  color: #fff;
+}
+
+.modalax12789 > mat-dialog-container {
+  padding: 0px !important;
+}
+
+.error {
+  background: red;
+  color: white;
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.success {
+  background: green;
+  color: white;
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.warning {
+  background: orange;
+  color: white;
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.primary-text-color {
+  color: $text-main-color;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.container-table {
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+form {
+  *:disabled {
+    color: rgba(0, 0, 0, 0.479) !important;
+  }
+  .mat-form-field-disabled {
+    .mat-form-field-wrapper {
+      .mat-form-field-flex {
+        .mat-form-field-infix {
+          .mat-form-field-label {
+            color: rgba(0, 0, 0, 0.479) !important;
+          }
+        }
+      }
+    }
+    mat-icon {
+      color: rgba(0, 0, 0, 0.479) !important;
+    }
+  }
+}
+
+.disabled-border {
+  //Para los fieldset
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.disabled-text {
+  color: rgba(0, 0, 0, 0.479) !important;
+}
+
+.highlight {
+  background-color: lightgray !important;
+}
+
+.mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.mat-option.mat-active {
+  background: #e5e7e9 !important;
+}
+
+mat-paginator,
+.mat-paginator {
+  width: 100%;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.cel-centrado {
+  text-align: center;
+  justify-content: center;
+}
+
+.mat-select-component {
+  input,
+  mat-option {
+    text-transform: uppercase !important;
+  }
+}
+
+@media print {
+  .hide-print,
+  .mat-snack-bar-container,
+  mat-sidenav {
+    display: none !important;
+  }
+  .mat-sidenav-content {
+    margin: 0px !important;
+  }
+  :not(.marco, .show) {
+    overflow: hidden !important;
+    height: auto !important;
+  }
+  body {
+    background-color: white !important;
+  }
+}
+
+.tamano-error {
+  font-size: 10.5px !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}

@@ -16,7 +16,7 @@ interface FoodNode {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
+    name: 'Discípulos',
     ruta: '',
     children: [
       {name: 'Apple', ruta: 'helloworld'},
@@ -24,22 +24,22 @@ const TREE_DATA: FoodNode[] = [
       {name: 'Fruit loops', ruta: 'example2'},
     ]
   }, {
-    name: 'Vegetables',
+    name: 'Asignación de líderes',
     ruta: '',
     children: [
       {
         name: 'Green',
         ruta: '',
         children: [
-          {name: 'Broccoli', ruta: 'http://localhost:4200/mci/list-persons'},
-          {name: 'Brussels sprouts', ruta: ''},
+          {name: 'Broccoli2', ruta: 'http://localhost:4200/mci/list-persons'},
+          {name: 'Listar personas', ruta: 'mci/list-persons'},
         ]
       }, {
         name: 'Orange',
         ruta: '',
         children: [
           {name: 'Pumpkins', ruta: ''},
-          {name: 'Carrots', ruta: ''},
+          {name: 'Listar ciudades', ruta: 'mci/list-cities'},
         ]
       },
     ]
@@ -51,6 +51,7 @@ interface ExampleFlatNode {
   expandable: boolean;
   name: string;
   level: number;
+  ruta: string;
 }
 @Component({
   selector: 'app-app-layout',
@@ -58,6 +59,8 @@ interface ExampleFlatNode {
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent implements OnInit {
+
+  showFiller = false;
 
   ngOnInit(): void {
   }
@@ -67,13 +70,15 @@ export class AppLayoutComponent implements OnInit {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
       level: level,
+      ruta: node.ruta,
     };
   }
   treeControl = new FlatTreeControl<ExampleFlatNode>(
     node => node.level, node => node.expandable);
 
   treeFlattener = new MatTreeFlattener(
-    this._transformer, node => node.level, node => node.expandable, node => node.children);
+    this._transformer, node => node.level, node => node.expandable,
+      node => node.children);
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
@@ -82,8 +87,4 @@ export class AppLayoutComponent implements OnInit {
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-
-  navigate(ruta:string){
-    this.router.navigate([ruta]);
-  }
 }

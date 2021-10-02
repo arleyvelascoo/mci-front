@@ -17,6 +17,14 @@ const routes: Routes = [
             './list-persons/list-persons.module'
             ).then((m) => m.ListPersonsModule),
       },
+
+      {
+        path: 'list-cities',
+        loadChildren: () =>
+          import(
+            './list-cities/list-cities.module'
+            ).then((m) => m.ListCitiesModule),
+      },
     ],
   }
 ];

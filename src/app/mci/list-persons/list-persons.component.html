@@ -1,12 +1,70 @@
-<p>list-persons works!</p>
+<br/>
+
+<div class="principal-card">
+  <mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title>
+        MCI -
+        <b>Administración de personas</b>
+      </mat-card-title>
+    </mat-card-header>
+
+    <div class="criteria-query">
+      <p class="mb-0"><b>Criterios de consulta</b></p>
+      <a
+        mat-mini-fab
+        color="primary"
+        title="Agregar nuevo registro"
+      >
+        <mat-icon>add</mat-icon>
+      </a>
+    </div>
+    <form>
+      <div class="inputs">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
 
 
-<h3>Basic Buttons</h3>
-<div class="example-button-row">
-  <button mat-button>Basic</button>
-  <button mat-button color="primary">Primary</button>
-  <button mat-button color="accent">Accent</button>
-  <button mat-button color="warn">Warn</button>
-  <button mat-button disabled>Disabled</button>
-  <a mat-button routerLink=".">Link</a>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+      </div>
+      <mat-radio-group>
+        <p>Registros vigentes</p>
+        <mat-radio-button value="true">Si</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+        <mat-radio-button value="" [checked]="true">Todos</mat-radio-button>
+      </mat-radio-group>
+      <div class="mt-16px">
+        <button
+          mat-raised-button
+          color="primary"
+          class="mr-10px"
+        >
+          Consultar
+        </button>
+        <button mat-stroked-button>
+          Limpiar consulta
+        </button>
+      </div>
+    </form>
+    <div>
+      <div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </mat-card>
 </div>

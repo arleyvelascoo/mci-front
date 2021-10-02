@@ -1,8 +1,26 @@
 .example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #eee;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.example-sidenav {
+  min-width: 280px;
+}
+
+.layout-branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mci-layout-branding-logo-expanded {
+  max-height: 150px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }
