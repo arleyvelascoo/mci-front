@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AppLayoutComponent} from "./app-layout/app-layout.component";
+import {AuthGuard} from "./mci/guards/auth.guard";
+import {LoginComponent} from "./mci/login/login.component";
 
 const routes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: '',
     component: AppLayoutComponent,
+
     children: [
       {
         path: '',
@@ -14,6 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'mci',
+        canLoad: [AuthGuard],
         loadChildren: () =>
           import(
             './mci/mci.module'

@@ -15,7 +15,8 @@ export class AuthGuard implements CanActivateChild, CanLoad {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.auth.validarTokenHijo();
+    // return this.auth.validarTokenHijo();
+    return true;
   }
   canLoad(
     route: Route,

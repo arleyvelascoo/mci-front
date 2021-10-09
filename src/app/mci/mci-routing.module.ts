@@ -7,10 +7,12 @@ import {AuthGuard} from "./guards/auth.guard";
 const routes: Routes = [
   {
     path: '',
-    component: MciComponent,
-    canLoad:[AuthGuard],
-    canActivateChild:[AuthGuard],
+    // canActivateChild: [AuthGuard],
     children: [
+      {
+        path: '',
+        component: MciComponent,
+      },
       {
         path: 'list-persons',
         loadChildren: () =>
