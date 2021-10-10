@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import {AppLayoutComponent} from "./app-layout/app-layout.component";
 import {AuthGuard} from "./mci/guards/auth.guard";
 import {LoginComponent} from "./mci/login/login.component";
+import {SignupComponent} from "./mci/signup/signup.component";
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: '',

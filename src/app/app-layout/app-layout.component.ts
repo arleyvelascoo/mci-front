@@ -1,20 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import {FlatTreeControl} from "@angular/cdk/tree";
 import {MatTreeFlatDataSource, MatTreeFlattener} from "@angular/material/tree";
 import {Router} from "@angular/router";
+import {TreeNode} from "../models/tree-node";
+import {LoginService} from "../services/login/login.service";
 
-/**
- * Food data with nested structure.
- * Each node has a name and an optional list of children.
- */
-interface FoodNode {
-  name: string;
-  ruta: string;
-  children?: FoodNode[];
-}
-
-const TREE_DATA: FoodNode[] = [
+let TREE_DATA: TreeNode[] = [
   {
     name: 'Discípulos',
     ruta: '',
@@ -60,12 +51,12 @@ interface ExampleFlatNode {
 })
 export class AppLayoutComponent implements OnInit {
 
-  showFiller = false;
-
   ngOnInit(): void {
+    TREE_DATA = this.loginService.getAuthorizedRoutesMenu();
+    this.dataSource.data = TREE_DATA;
   }
 
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: TreeNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
@@ -82,9 +73,16 @@ export class AppLayoutComponent implements OnInit {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private loginService: LoginService) {
     this.dataSource.data = TREE_DATA;
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+
+  logout(){
+    localStorage.setItem('token', '');
+    this.router.navigate(['login']).then(r=>{
+      console.log(r);
+    })
+  }
 }
