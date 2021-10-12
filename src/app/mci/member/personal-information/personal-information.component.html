@@ -1,0 +1,97 @@
+<br/>
+
+<div class="principal-card">
+  <mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title>
+        MCI -
+        <b>Información personal</b>
+      </mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="form">
+      <div class="inputs">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombres</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select formControlName="idDocumentType">
+            <mat-option *ngFor="let dT of documentTypes" [value]="dT.id">
+              {{dT.documentName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Número de documento</mat-label>
+          <input matInput formControlName="documentNumber">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Dirección</mat-label>
+          <input matInput formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Barrio</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Número de teléfono</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ciudad</mat-label>
+          <input type="text" matInput formControlName="idCity" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions" [value]="option">
+              {{option.cityStateCounty}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+
+      </div>
+      <mat-radio-group>
+        <p>Registros vigentes</p>
+        <mat-radio-button value="true">Si</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+        <mat-radio-button value="" [checked]="true">Todos</mat-radio-button>
+      </mat-radio-group>
+      <div class="mt-16px">
+        <button
+          (click)="showForm()"
+          mat-raised-button
+          color="primary"
+          class="mr-10px"
+        >
+          Consultar
+        </button>
+        <button mat-stroked-button>
+          Limpiar consulta
+        </button>
+      </div>
+    </form>
+    <div>
+      <div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
