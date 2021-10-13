@@ -1,13 +1,24 @@
 import {TreeNode} from "../models/tree-node";
+
 export const TREE_LEADER: TreeNode[] = [
   {
-    name: 'Información',
+    name: 'MCI',
     ruta: '',
-    children: []
+    children: [{
+      name: 'Noticias',
+      ruta: 'mci',
+      children: []
+    },]
   },
   {
-    name: 'Discípulos',
+    name: 'Líder',
     ruta: '',
-    children: []
+    children: [
+      {
+        name: 'Discípulos',
+        ruta: 'mci/leader/disciples',
+        children: []
+      }
+    ]
   },
 ]

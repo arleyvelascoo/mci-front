@@ -32,6 +32,12 @@ const routes: Routes = [
           import('./member/member.module')
             .then((m) => m.MemberModule),
       },
+      {
+        path: 'leader',
+        loadChildren: () =>
+          import('./leader/leader.module')
+            .then((m) => m.LeaderModule),
+      }
     ],
   }
 ];

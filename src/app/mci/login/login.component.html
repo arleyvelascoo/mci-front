@@ -14,7 +14,7 @@
               <!--      <span class="uis-layout-branding-name">UIS</span>-->
             </a>
           </div>
-          <form [formGroup]="form">
+          <form [formGroup]="form" (ngSubmit)="login()">
             <div class="inputs">
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Nombre de Usuario</mat-label>
@@ -47,7 +47,7 @@
                 mat-raised-button
                 color="primary"
                 class="mr-10px"
-                (click)="login()"
+                type="submit"
               >
                 Iniciar sesión
               </button>

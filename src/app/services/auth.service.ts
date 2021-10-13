@@ -17,10 +17,16 @@ export class AuthService {
       const payload = jwt_decode(token);
       const sToken = token.split(" ");
       console.log(payload);
-      if (sToken[0] === "Bearer" && sToken[1] && Object(payload)['idUser'] === 1) {
-        return true;
+      if (sToken[0] === "Bearer" && sToken[1]) {
+        const expirationDate = new Date(0);
+        const now = new Date();
+        expirationDate.setUTCSeconds(<number>Object(payload)['exp']);
+        if (now <= expirationDate){
+          return true;
+        }
       }
     }
+    localStorage.setItem('token', '');
     this.router.navigate(['/login']).then(r => {
       console.log(r)
     });

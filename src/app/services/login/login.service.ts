@@ -8,6 +8,7 @@ import {SnackbarService} from "../snackbar/snackbar.service";
 import {TreeNode} from "../../models/tree-node";
 import jwt_decode from "jwt-decode";
 import {MAP_ROLES_TREE} from "../../constantes/map-roles-tree";
+import {SignUp} from "../../models/signup";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,29 @@ export class LoginService {
 
   login(login: Login): Observable<any> {
     return this.http.post(`${environment.urlBackAuth}/signIn`, login)
+      .pipe(
+        tap({
+          next: (res) => {
+            if (!res) {
+              this.snackbar.show({
+                tipo: 'error',
+                mensaje: "Unauthorized path",
+              });
+            }
+          },
+        }),
+        catchError(() => {
+          this.snackbar.show({
+            tipo: 'error',
+            mensaje: 'Unauthorized path',
+          });
+          return [];
+        })
+      );
+  }
+
+  signUp(signUp: SignUp): Observable<any>{
+     return this.http.post(`${environment.urlBackAuth}/signUp`, signUp)
       .pipe(
         tap({
           next: (res) => {

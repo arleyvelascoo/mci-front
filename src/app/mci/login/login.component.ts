@@ -39,25 +39,24 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let login: Login = <Login> this.form.value;
-    console.log(this.form.getRawValue())
-    this.loginService.login(login).pipe(take(1))
-      .subscribe({
-      next: (resp) => {
-        if (resp) {
-          console.log("Respuesta del token", resp.data);
-          localStorage.setItem('token', 'Bearer ' + resp.token);
-          this.router.navigate(['/mci']).then(r=>{
-            if (r){
-              console.log('Successfully');
+    this.form.markAllAsTouched();
+    if (this.form.valid) {
+      let login: Login = <Login>this.form.value;
+      this.loginService.login(login).pipe(take(1))
+        .subscribe({
+          next: (resp) => {
+            if (resp) {
+              console.log("Respuesta del token", resp.data);
+              localStorage.setItem('token', 'Bearer ' + resp.token);
+              this.router.navigate(['/mci']).then(r => {
+                if (r) {
+                }
+              });
+            } else {
+              localStorage.setItem('token', '');
             }
-          });
-        } else {
-          localStorage.setItem('token', '');
-          console.log('An error has occurred');
-        }
-      }
-    })
-    console.log(login);
+          }
+        })
+    }
   }
 }

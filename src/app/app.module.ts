@@ -8,6 +8,7 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { MaterialModule } from './material/material.module';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptorService} from "./services/interceptors/token-interceptor.service";
+import {MatTreeModule} from "@angular/material/tree";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {TokenInterceptorService} from "./services/interceptors/token-interceptor
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatTreeModule
   ],
   providers: [
     {

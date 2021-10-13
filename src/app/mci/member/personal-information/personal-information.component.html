@@ -9,7 +9,7 @@
       </mat-card-title>
     </mat-card-header>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="showForm()">
       <div class="inputs">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Nombres</mat-label>
@@ -35,6 +35,16 @@
           <input matInput formControlName="documentNumber">
         </mat-form-field>
 
+
+        <mat-form-field appearance="fill">
+          <mat-label>Género</mat-label>
+          <mat-select formControlName="idGender">
+            <mat-option *ngFor="let dT of genders" [value]="dT.id">
+              {{dT.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Dirección</mat-label>
           <input matInput formControlName="address">
@@ -42,17 +52,17 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Barrio</mat-label>
-          <input matInput>
+          <input matInput formControlName="neighborhood">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Número de teléfono</mat-label>
-          <input matInput>
+          <input matInput formControlName="phoneNumber">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>E-mail</mat-label>
-          <input matInput>
+          <input matInput formControlName="email">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -60,30 +70,31 @@
           <input type="text" matInput formControlName="idCity" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
             <mat-option *ngFor="let option of filteredOptions" [value]="option">
-              {{option.cityStateCounty}}
+              {{option.cityStateCountry}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
 
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-slide-toggle formControlName="hasEncounter" color="primary">¿Ya asistió a Encuentro?</mat-slide-toggle>
+        <mat-slide-toggle formControlName="wasBaptized" color="primary">¿Ya fue bautizado?</mat-slide-toggle>
 
       </div>
-      <mat-radio-group>
-        <p>Registros vigentes</p>
-        <mat-radio-button value="true">Si</mat-radio-button>
-        <mat-radio-button value="false">No</mat-radio-button>
-        <mat-radio-button value="" [checked]="true">Todos</mat-radio-button>
-      </mat-radio-group>
       <div class="mt-16px">
         <button
-          (click)="showForm()"
           mat-raised-button
           color="primary"
           class="mr-10px"
+          type="submit"
+          *ngIf="edit"
         >
-          Consultar
-        </button>
-        <button mat-stroked-button>
-          Limpiar consulta
+          Editar
         </button>
       </div>
     </form>

@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,7 +28,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatTreeModule } from "@angular/material/tree";
 
 import {
   DateAdapter,
@@ -40,6 +38,10 @@ import {
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+  MomentDateAdapter,
+} from '@angular/material-moment-adapter';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 export const MY_FORMATS = {
@@ -115,7 +117,6 @@ export const customPaginator = () => {
     FormsModule,
     MatProgressBarModule,
     MatCheckboxModule,
-    MatTreeModule,
   ],
   exports: [
     MatButtonModule,
@@ -147,8 +148,20 @@ export const customPaginator = () => {
     HttpClientModule,
     MatProgressBarModule,
     MatCheckboxModule,
-    MatTreeModule,
   ],
-
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {},
+    },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-CO' },
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MatPaginatorIntl, useValue: customPaginator() },
+  ],
 })
 export class MaterialModule {}

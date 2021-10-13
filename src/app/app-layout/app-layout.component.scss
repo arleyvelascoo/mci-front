@@ -24,3 +24,35 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.mat-tree-node > a {
+  width: 100%;
+  text-align: left;
+  line-height: 48px;
+}
+
+.tree-node-father {
+  width: 100%;
+  text-align: left;
+  line-height: 48px;
+}
+
+::ng-deep .mat-toolbar{
+  z-index: 998;
+  position: sticky;
+  top: 0;
+}
+::ng-deep .mat-tab-group{
+  margin-top:55px !important;
+}
+
+::ng-deep .mat-tab-header{
+      z-index: 999;
+      width:100vw;
+      position: fixed !important;
+      background-color: red !important;
+}
+::ng-deep .mat-tab-body-wrapper{
+    position: relative !important;
+    margin-top:55px;
+}
