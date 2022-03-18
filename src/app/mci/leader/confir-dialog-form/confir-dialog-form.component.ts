@@ -136,8 +136,6 @@ export class ConfirDialogFormComponent implements OnInit {
 
   onClickYes(): void {
     this.form.markAllAsTouched();
-    console.log(this.form.valid);
-    console.log(this.form);
     if (this.form.valid) {
       if (this.insertMode) {
         let toSend: PersonDto = this.form.value as PersonDto;

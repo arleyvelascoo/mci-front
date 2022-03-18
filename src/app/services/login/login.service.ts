@@ -41,8 +41,8 @@ export class LoginService {
       );
   }
 
-  signUp(signUp: SignUp): Observable<any>{
-     return this.http.post(`${environment.urlBackAuth}/signUp`, signUp)
+  signUp(signUp: SignUp): Observable<any> {
+    return this.http.post(`${environment.urlBackAuth}/signUp`, signUp)
       .pipe(
         tap({
           next: (res) => {
@@ -64,14 +64,36 @@ export class LoginService {
       );
   }
 
-  getAuthorizedRoutesMenu(): TreeNode[]{
+  remindPassword(username: string): Observable<any> {
+    return this.http.get(`${environment.urlBackAuth}/recoverPassword?username=${username}`).pipe(
+        tap({
+          next: (res) => {
+            if (!res) {
+              this.snackbar.show({
+                tipo: 'error',
+                mensaje: "Unauthorized path",
+              });
+            }
+          },
+        }),
+        catchError(() => {
+          this.snackbar.show({
+            tipo: 'error',
+            mensaje: 'Algo no salió bien',
+          });
+          return [];
+        })
+      );
+  }
+
+  getAuthorizedRoutesMenu(): TreeNode[] {
     let token = localStorage.getItem('token');
     if (token) {
       const payload = jwt_decode(token);
       const sToken = token.split(" ");
       if (sToken[0] === "Bearer" && sToken[1]) {
         let tree = MAP_ROLES_TREE.get(Object(payload)['rolName']);
-        if (tree){
+        if (tree) {
           return tree;
         }
         return [];

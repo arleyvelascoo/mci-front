@@ -11,13 +11,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { SignupComponent } from './signup/signup.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { PasswordReminderComponent } from './password-reminder/password-reminder.component';
 
 
 @NgModule({
   declarations: [
     MciComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PasswordReminderComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     MatButtonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class MciModule {

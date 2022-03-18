@@ -59,4 +59,11 @@ export class LoginComponent implements OnInit {
         })
     }
   }
+
+  openPasswordReminder() {
+    this.router.navigate(['/pass-reminder']).then(r => {
+      if (r) {
+      }
+    });
+  }
 }

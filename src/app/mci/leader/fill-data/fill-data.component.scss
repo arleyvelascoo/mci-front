@@ -1,0 +1,103 @@
+.principal-card{
+  display: flex;
+  justify-content: center;
+}
+.card-container{
+  width: 98%;
+}
+
+.margin-top-1-5em{
+  margin-top: 1.5em;
+}
+
+.mat-card-header{
+  justify-content: center;
+}
+
+.mr-10px{
+  margin-right: 10px;
+}
+
+.mt-16px{
+  margin-top: 16px;
+}
+
+.mb-0{
+  margin-bottom: 0;
+}
+
+.criteria-query{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+}
+
+.mat-radio-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.mat-radio-group > * {
+  margin-right: 2.5rem;
+}
+
+.mat-radio-button{
+  padding-bottom: 0.25em;
+}
+
+.mat-radio-group> p{
+  margin-bottom: 0.2em;
+}
+
+
+@media (min-width: 0){
+  .card-container{
+    max-width: 98%;
+  }
+}
+
+@media (min-width: 576px){
+  .card-container{
+    max-width: 95%;
+  }
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.inputs{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+}
+
+.mat-dialog-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-dialog-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+}
+
+.text-align-center{
+  text-align: center;
+}

@@ -1,43 +1,48 @@
-.principal-card{
+.principal-card {
   display: flex;
   justify-content: center;
 }
-.card-container{
+
+.card-container {
   width: 98%;
 }
 
-.margin-top-1-5em{
+.margin-top-1-5em {
   margin-top: 1.5em;
 }
 
-.mat-card-header{
+.mat-card-header {
   justify-content: center;
 }
 
-.mr-10px{
+.mr-10px {
   margin-right: 10px;
 }
 
-.mt-16px{
+.mt-16px {
   margin-top: 16px;
 }
 
-.mb-0{
+.mb-0 {
   margin-bottom: 0;
 }
 
-.criteria-query{
+.criteria-query {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
 }
 
-.form{
+.button-leader {
+  margin: 0 2px;
+}
+
+.form {
   display: flex;
 }
 
-.mat-radio-group{
+.mat-radio-group {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -47,23 +52,23 @@
   margin-right: 2.5rem;
 }
 
-.mat-radio-button{
+.mat-radio-button {
   padding-bottom: 0.25em;
 }
 
-.mat-radio-group> p{
+.mat-radio-group > p {
   margin-bottom: 0.2em;
 }
 
 
-@media (min-width: 0){
-  .card-container{
+@media (min-width: 0) {
+  .card-container {
     max-width: 98%;
   }
 }
 
-@media (min-width: 576px){
-  .card-container{
+@media (min-width: 576px) {
+  .card-container {
     max-width: 95%;
   }
 }
@@ -78,7 +83,7 @@
   width: 100%;
 }
 
-.inputs{
+.inputs {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
@@ -88,6 +93,50 @@ table {
   width: 100%;
 }
 
-.text-align-center{
+.text-align-center {
   text-align: center;
 }
+
+.plantilla-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.plantilla-table td, .plantilla-table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.plantilla-table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#pdf-plantilla{
+  max-width: 550px;
+  padding: 1rem 1rem;
+  border: 1px solid black;
+}
+
+.testeando{
+   transform: scale(0.7);
+}
+
+
+.layout-branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mci-layout-branding-logo-expanded {
+  max-height: 110px;
+}
+
+.header-informe{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
